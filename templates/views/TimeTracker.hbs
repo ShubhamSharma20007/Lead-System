@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="en" class="light-style layout-menu-fixed layout-compact" dir="ltr" data-theme="theme-default"
+    data-assets-path="/assets/" data-template="vertical-menu-template-free">
+
+<head>
+    <link rel="stylesheet" href="/css/timeTracker.css">
+    <script src="/scripts/timeTracker.js"></script>
+</head>
+
+<body>
+    <div class="loader_cnt">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <!-- Menu -->
+
+            {{>Sidebar}}
+            <!-- / Menu -->
+
+            <!-- Layout container -->
+            <div class="layout-page">
+                <!-- Navbar -->
+
+                {{>navBar}}
+                <!-- / Navbar -->
+
+                <!-- Content wrapper -->
+                <div class="content-wrapper">
+                    <!-- Content -->
+
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        <div
+                            class=" col-md-12 col-12 mt-2 bg-white p-4 rounded-top rounded-bottom d-flex justify-content-between align-items-center">
+
+                            <div class="input-container2 col-md-6 col-12 px-0">
+                                <input type="text" placeholder="What are you working on?" name="taskname" id="taskname"
+                                    class="input-field w-100" autocomplete="name">
+                            </div>
+                            <div class="cur_time d-flex justify-content-center gap-5">
+                                <div class="timer d-flex justify-content-center align-items-center" style="gap: 15px">
+                                    <p class="starthour m-0">00</p>
+                                    :
+                                    <p class="startminute m-0">00</p>
+                                    :
+                                    <p class="startsecond m-0">00</p>
+                                </div>
+
+                                <div class="btn_cnt">
+                                    <button class="startbtn Btn">
+                                        Start
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {{!-- data head --}}
+                        <div class="col-md-12 col-12 mt-4 p-0  ">
+                            <div class="heading w-100 d-flex justify-content-between rounded-top  p-4 align-items-center p-0"
+                                style="background-color: antiquewhite;">
+
+                                <div class="total_cnt d-flex justify-content-between align-items-center w-100"
+                                    style="gap: 15px;">
+                                    <h6 class="m-0">Total</h6>
+                                    <input type="text" name="" value={{userId}} id="useremp_id" class="d-none">
+                                    <div class="timer output_timer d-flex justify-content-center align-items-center"
+                                        style="gap: 15px">
+                                        <p class="hour m-0">00</p>
+                                        :
+                                        <p class="minute m-0">00</p>
+                                        :
+                                        <p class="second m-0">00</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="data_holder">
+                                {{!-- custom data --}}
+
+                            </div>
+
+
+                        </div>
+
+
+
+                    </div>
+
+                    <!-- Footer -->
+                    {{>footer}}
+                    <!-- / Footer -->
+
+                    <div class="content-backdrop fade"></div>
+                </div>
+                <!-- Content wrapper -->
+            </div>
+            <!-- / Layout page -->
+        </div>
+
+        <!-- Overlay -->
+        <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+
+
+</body>
+
+</html>

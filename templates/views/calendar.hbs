@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+
+<html lang="en" class="light-style layout-menu-fixed layout-compact" dir="ltr" data-theme="theme-default"
+    data-assets-path="/assets/" data-template="vertical-menu-template-free">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Lead Managment</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="/assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="/assets/vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="/assets/js/config.js"></script>
+
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+    </style>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <style>
+        body {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            font-family: "Poppins", serif;
+            background: #eeaeca;
+            background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+        }
+
+        h1 {
+            font-weight: 800;
+            margin: 1rem 0 0;
+        }
+
+        .ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+        }
+
+        .ul .li {
+            display: flex;
+            width: 10rem;
+            height: 10rem;
+            margin: 0.25rem;
+            flex-flow: column;
+            border-radius: 0.2rem;
+            padding: 1rem;
+            font-weight: 300;
+            font-size: 0.8rem;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .ul .li time {
+            font-size: 2rem;
+            margin: 0 0 1rem 0;
+            font-weight: 500;
+        }
+
+        .li time {
+            font-size: 2rem;
+            margin: 0 0 1rem 0;
+            font-weight: 500;
+        }
+
+        .ul .today time {
+            font-weight: 800;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin: 20px auto;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .day {
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .current-day {
+            background-color: #f0f0f0;
+        }
+
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .controls button {
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .current-date {
+            background-color: rgba(0, 0, 0, 0.459) !important;
+            color: white !important;
+            /* Optional: Set text color to white for better contrast */
+        }
+
+
+        .dialog {
+            width: 300px;
+            height: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border-radius: 10px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+
+        .group {
+            position: relative;
+        }
+
+        .input {
+            font-size: 16px;
+            padding: 10px 10px 10px 5px;
+            display: block;
+            width: 80%;
+            border: none;
+            border-bottom: 1px solid #515151;
+            background: transparent;
+        }
+
+        .input:focus {
+            outline: none;
+        }
+
+        label {
+            color: #999;
+            font-size: 15px;
+            font-weight: normal;
+            position: absolute;
+            pointer-events: none;
+            left: 40px;
+            top: 10px;
+            transition: 0.2s ease all;
+            -moz-transition: 0.2s ease all;
+            -webkit-transition: 0.2s ease all;
+        }
+
+        .input:focus~label,
+        .input:valid~label {
+            top: -20px;
+            font-size: 14px;
+            color: #5264AE;
+        }
+
+        .bar {
+            position: relative;
+            display: block;
+            width: 80%;
+        }
+
+        .bar:before,
+        .bar:after {
+            content: '';
+            height: 1px;
+            width: 0;
+            bottom: 1px;
+            position: absolute;
+            background: #5264AE;
+            transition: 0.2s ease all;
+            -moz-transition: 0.2s ease all;
+            -webkit-transition: 0.2s ease all;
+        }
+
+        .bar:before {
+            left: 50%;
+        }
+
+        .bar:after {
+            right: 50%;
+        }
+
+        .input:focus~.bar:before,
+        .input:focus~.bar:after {
+            width: 50%;
+        }
+
+        .highlight {
+            position: absolute;
+            height: 60%;
+            width: 100px;
+            top: 25%;
+            left: 0;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .input:focus~.highlight {
+            animation: inputHighlighter 0.3s ease;
+        }
+
+
+        button {
+            --primary-color: #645bff;
+            --secondary-color: #fff;
+            --hover-color: #111;
+            --arrow-width: 10px;
+            --arrow-stroke: 2px;
+            box-sizing: border-box;
+            border: 0;
+            border-radius: 20px;
+            color: var(--secondary-color);
+            padding: 0.7em 1em;
+            background: var(--primary-color);
+            display: flex;
+            transition: 0.2s background;
+            align-items: center;
+            gap: 0.6em;
+            font-weight: bold;
+        }
+
+        button .arrow-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button .arrow {
+            margin-top: 1px;
+            width: var(--arrow-width);
+            background: var(--primary-color);
+            height: var(--arrow-stroke);
+            position: relative;
+            transition: 0.2s;
+        }
+
+        button .arrow::before {
+            content: "";
+            box-sizing: border-box;
+            position: absolute;
+            border: solid var(--secondary-color);
+            border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+            display: inline-block;
+            top: -3px;
+            right: 3px;
+            transition: 0.2s;
+            padding: 3px;
+            transform: rotate(-45deg);
+        }
+        .event-names{
+            text-transform: capitalize;
+        }
+
+        button:hover {
+            background-color: var(--hover-color);
+        }
+
+        button:hover .arrow {
+            background: var(--secondary-color);
+        }
+
+        button:hover .arrow:before {
+            right: 0;
+        }
+
+        @keyframes inputHighlighter {
+            from {
+                background: #5264AE;
+            }
+
+            to {
+                width: 0;
+                background: transparent;
+            }
+        }
+
+        @media screen and (max-width:767px) {
+            .ul .li {
+                width: 3rem;
+                height: 3rem;
+            }
+
+            .ul .li time {
+                font-size: 1rem;
+                margin: 0 0 1rem 0;
+                font-weight: 500;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    {{!-- <div id="calendar" class="calendar"></div> --}}
+
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <!-- Menu -->
+
+            {{>Sidebar}}
+            <!-- / Menu -->
+
+            <!-- Layout container -->
+            <div class="layout-page">
+                <!-- Navbar -->
+
+                {{>navBar}}
+                <!-- / Navbar -->
+
+                <!-- Content wrapper -->
+                <div class="content-wrapper">
+                    <!-- Content -->
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        <dialog class="dialog">
+                            <div class="d-flex justify-content-end p-2 align-items-center">
+                                <i class="ri-close-large-fill" onclick="closedialog()"></i>
+                            </div>
+                            <div class="main_group">
+                                <div
+                                    class="group d-inline-block d-flex flex-column justify-content-center align-items-center">
+                                    <input required="" type="text" name="eventname" class="input">
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Name</label>
+                                    <div class=" mt-4">
+                                        <button class="event-btn">
+                                            Add Event
+                                            <div class="arrow-wrapper">
+                                                <div class="arrow"></div>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </dialog>
+                        <div class="d-flex justify-content-between align-content-center">
+                            <div class="">
+                                <h1 id="currentMonthYear">March 2024</h1>
+                                <p>Holidays and Daily Observances in the Alwar, Rajasthan</a>
+                            </div>
+                            <div class="arrow d-flex gap-5 align-items-center">
+                                <i class="ri-arrow-left-circle-fill h1" id="prevMonth"></i>
+                                <i class="ri-arrow-right-circle-fill h1" id="nextMonth"></i>
+                            </div>
+                        </div>
+                        <ul id="calendar" class="ul">
+
+                    </div>
+
+                    <!-- Footer -->
+                    {{!-- {{>footer}} --}}
+                    <!-- / Footer -->
+
+                    <div class="content-backdrop fade"></div>
+                </div>
+                <!-- Content wrapper -->
+            </div>
+            <!-- / Layout page -->
+        </div>
+
+        <!-- Overlay -->
+        <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+
+
+</body>
+
+<!-- Main JS -->
+<script src="/assets/js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/2.0.2/js/dataTables.bootstrap5.js"></script>
+
+
+
+<script>
+    const calendar = document.getElementById('calendar');
+    const currentMonthYear = document.getElementById('currentMonthYear');
+    const prevMonthButton = document.getElementById('prevMonth');
+    const nextMonthButton = document.getElementById('nextMonth');
+
+    let currentDate = new Date();
+
+    function updateCalendar() {
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth();
+
+        // Set the current month and year in the header
+        currentMonthYear.textContent = new Intl.DateTimeFormat('en-IN', { month: 'long', year: 'numeric' }).format(currentDate);
+
+        // Get the first day of the month
+        const firstDay = new Date(year, month, 1);
+        const firstDayIndex = firstDay.getDay();
+
+        // Get the last day of the month
+        const lastDay = new Date(year, month + 1, 0);
+        const lastDate = lastDay.getDate();
+
+        // Create an array of dates for the month
+        const dates = [];
+        for (let i = 1; i <= lastDate; i++) {
+            dates.push(i);
+        }
+
+        // Clear previous calendar
+        calendar.innerHTML = '';
+
+        // Add days of the week
+        const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        daysOfWeek.forEach(day => {
+            const dayElement = document.createElement('div');
+            dayElement.style.marginBottom = "1.2rem"
+            dayElement.textContent = day;
+            calendar.appendChild(dayElement);
+        });
+
+        // Add empty cells for the first week
+        for (let i = 0; i < firstDayIndex; i++) {
+            const emptyCell = document.createElement('div');
+            calendar.appendChild(emptyCell);
+        }
+
+        // Add dates to the calendar
+        dates.forEach(date => {
+            const liElement = document.createElement('li');
+            const p = document.createElement('p');
+            p.classList.add('event-names')
+          
+        
+          
+
+            liElement.addEventListener('click', (e) => {
+                e.stopPropagation()
+                selectEvent(e.target)
+            })
+            const timeElement = document.createElement('time');
+            timeElement.setAttribute('datetime', `${year}-${month + 1}-${date}`);
+            timeElement.textContent = date;
+
+            liElement.append(timeElement, p);
+            liElement.classList.add('li');
+            if (date === new Date().getDate() && month === new Date().getMonth() && year === new Date().getFullYear()) {
+                liElement.classList.add('current-date');
+            }
+
+            calendar.appendChild(liElement);
+
+        });
+    }
+
+    // Update the calendar when the page loads
+    updateCalendar();
+
+    // Event listeners for navigation buttons
+    prevMonthButton.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        updateCalendar();
+    });
+
+    nextMonthButton.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        updateCalendar();
+    });
+
+    async function selectEvent(e) {
+        const dialog = document.querySelector('.dialog');
+        const eventbtn = document.querySelector('.event-btn');
+        dialog.showModal();
+        dialog.focus();
+        const timeElement = e.querySelector('time');
+        if (timeElement || e.dateTime) {
+            const dateTime = timeElement?.getAttribute('datetime');
+            // post request
+            eventbtn.addEventListener('click', async () => {
+                let eventname = document.querySelector('input[name="eventname"]').value;
+                const res = await fetch("/events", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        eventname: eventname,
+                        eventdate: dateTime || e.dateTime
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    document.querySelector('input[name="eventname"]').value = ""
+                   // alert('data store')
+                    document.querySelector('.dialog').close();
+                    getAlldata()
+                }
+            })
+        }
+    }
+
+    function closedialog() {
+        document.querySelector('.dialog').close();
+    }
+
+
+function getAlldata ()  {
+    fetch('/get-events')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            // Process and display data as needed
+            displayEvents(data);
+        })
+        .catch(error => console.error('Error:', error));
+};
+
+getAlldata()
+
+function displayEvents(eventsData) {
+    if (!eventsData || !eventsData.success || !Array.isArray(eventsData.data)) {
+        console.error('Events data is not in the expected format:', eventsData);
+        return;
+    }
+
+    const eventsMap = {}; // Create a map to store events by date
+    eventsData.data.forEach(event => {
+        const eventDate = new Date(event.eventdate).toLocaleDateString('en-IN', { year: 'numeric', month: 'numeric', day: 'numeric' });
+        if (!eventsMap[eventDate]) {
+            eventsMap[eventDate] = [];
+        }
+        eventsMap[eventDate].push(event.eventname);
+    });
+
+    const calendarDates = document.querySelectorAll('.li time');
+    calendarDates.forEach(dateElement => {
+        const date = dateElement.getAttribute('datetime');
+        const formattedDate = new Date(date).toLocaleDateString('en-IN', { year: 'numeric', month: 'numeric', day: 'numeric' });
+        const eventNames = eventsMap[formattedDate];
+        const parentLi = dateElement.parentElement;
+        const p = parentLi.querySelector('.event-names');
+        if (eventNames && eventNames.length > 0) {  
+            p.textContent = eventNames.join(', ');
+              p.style.color ="red"
+              p.style.fontWeight = "bold"
+              p.style.fontSize = "1rem"
+             
+        } else {
+            p.textContent = '';
+        }
+    });
+}
+
+</script>
+
+{{!--
+<script>
+    async function getEvents() {
+        try {
+            const response = await fetch('/get-events')
+            const output = await response.json()
+            if (output.success) {
+                const events = output.data;
+                const li = document.querySelectorAll('.li');
+                li.forEach((element, index) => {
+                    const timeElement = element.querySelector('time');
+                    if (timeElement || element.dateTime) {
+                        const dateTime = timeElement?.getAttribute('datetime');
+                        const val = events.filter(chunks => {
+
+                            return (
+                                chunks.eventdate.toString() === dateTime
+                            )
+                        })
+                        const p = element.querySelector('p');
+                        val.textContent = event.eventname;
+                        p.style.color = 'red';
+                    }
+                })
+            }
+
+        }
+        catch (err) {
+
+        }
+    }
+
+    getEvents()
+</script> --}}
+
+</html>

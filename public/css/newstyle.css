@@ -1,0 +1,61 @@
+
+*::-webkit-scrollbar {
+
+  height: 8px;
+  width: 8px;
+}
+
+
+
+*::-webkit-scrollbar-thumb {
+  background-color: #ffffffbd;
+  border-radius: 10px;
+  cursor: default;
+}
+
+*::-webkit-scrollbar-track {
+  background-color:rgba(36, 36, 38, 0.548);
+  border-radius: 10px;
+}
+
+.chat-box {
+  position: absolute;
+  right: 10px;
+  top: 13%;
+  z-index: 999;
+  transition: all 1s ease !important;
+  display: none;
+
+}
+
+.header {
+  transition: all 1s ease !important;
+
+}
+
+.chat-room {
+  overflow: overlay;
+
+}
+
+.chat-room::-webkit-scrollbar {
+  width: 0px;
+}
+
+.bubble-dark {
+  display: none !important;
+}
+
+.bubble-light,
+.bubble-dark {
+  background: #add8e654;
+}
+
+.message-left {
+  cursor: pointer;
+}
+
+.chat-main-box {
+  display: none;
+}
+  

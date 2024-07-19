@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<!-- Coding by CodingNepal | www.codingnepalweb.com-->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title> Login and Registration Form in HTML & CSS | CodingLab </title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- Fontawesome CDN Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <style>
+    /* Google Font Link */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+    input::-webkit-inner-spin-button,
+    input::-webkit-outer-spin-button {
+      appearance: none;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(128, 0, 128, 0.132);
+      padding: 30px;
+    }
+
+    .container {
+      position: relative;
+      max-width: 850px;
+      width: 100%;
+      background: #fff;
+      padding: 40px 30px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      perspective: 2700px;
+    }
+
+    .container .cover {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      height: 100%;
+      width: 50%;
+      z-index: 98;
+      transition: all 1s ease;
+      transform-origin: left;
+      transform-style: preserve-3d;
+    }
+
+      {
+        {
+        !-- .container #flip:checked~.cover {
+          transform: rotateY(-180deg);
+        }
+
+        .container .cover .front,
+        .container .cover .back {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+        }
+
+        .cover .back {
+          transform: rotateY(180deg);
+          backface-visibility: hidden;
+        }
+
+        --
+      }
+    }
+
+    .container .cover::before,
+    .container .cover::after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: #7d2ae8;
+      opacity: 0.5;
+      z-index: 12;
+    }
+
+    .container .cover::after {
+      opacity: 0.3;
+      transform: rotateY(180deg);
+      backface-visibility: hidden;
+    }
+
+    .container .cover img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      z-index: 10;
+    }
+
+    .container .cover .text {
+      position: absolute;
+      z-index: 130;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cover .text .text-1,
+    .cover .text .text-2 {
+      font-size: 26px;
+      font-weight: 600;
+      color: #fff;
+      text-align: center;
+    }
+
+    .cover .text .text-2 {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .container .forms {
+      height: 100%;
+      width: 100%;
+      background: #fff;
+    }
+
+    .container .form-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .form-content .login-form,
+    .form-content .signup-form {
+      width: calc(100% / 2 - 25px);
+    }
+
+    .forms .form-content .title {
+      position: relative;
+      font-size: 24px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .forms .form-content .title:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 3px;
+      width: 25px;
+      background: #7d2ae8;
+    }
+
+    .forms .signup-form .title:before {
+      width: 20px;
+    }
+
+    .forms .form-content .input-boxes {
+      margin-top: 30px;
+    }
+
+    .forms .form-content .input-box {
+      display: flex;
+      align-items: center;
+      height: 50px;
+      width: 100%;
+      margin: 10px 0;
+      position: relative;
+    }
+
+    .form-content .input-box input {
+      height: 100%;
+      width: 100%;
+      outline: none;
+      border: none;
+      padding: 0 30px;
+      font-size: 16px;
+      font-weight: 500;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .form-content .input-box input:focus,
+    .form-content .input-box input:valid {
+      border-color: #7d2ae8;
+    }
+
+    .form-content .input-box i {
+      position: absolute;
+      color: #7d2ae8;
+      font-size: 17px;
+    }
+
+    .forms .form-content .text {
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+    }
+
+      {
+        {
+        !-- .dialog-container {
+          display: none;
+        }
+
+        --
+      }
+    }
+
+    .forms .form-content .text a {
+      text-decoration: none;
+    }
+
+    .forms .form-content .text a:hover {
+      text-decoration: underline;
+    }
+
+    .forms .form-content .button {
+      color: #fff;
+      margin-top: 40px;
+    }
+
+    .forms .form-content .button input {
+      color: #fff;
+      background: #7d2ae8;
+      border-radius: 6px;
+      padding: 0;
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+
+    .forms .form-content .button input:hover {
+      background: #5b13b9;
+    }
+
+    .forms .form-content label {
+      color: #5b13b9;
+      cursor: pointer;
+    }
+
+    .forms .form-content label:hover {
+      text-decoration: underline;
+    }
+
+    .forms .form-content .login-text,
+    .forms .form-content .sign-up-text {
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .dialog-container {
+      height: 300px;
+      width: 320px;
+      z-index: 99;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid #ccc;
+      border-radius: 8px;
+
+    }
+
+      {
+        {
+        !-- dialog --
+      }
+    }
+
+    .otp-Form {
+      width: 100%;
+      height: 100%;
+      background-color: rgb(255, 255, 255);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 30px;
+      gap: 20px;
+      position: relative;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.082);
+      border-radius: 15px;
+    }
+
+    .mainHeading {
+      font-size: 1.1em;
+      color: rgb(15, 15, 15);
+      font-weight: 700;
+    }
+
+    .otpSubheading {
+      font-size: 0.7em;
+      color: black;
+      line-height: 17px;
+      text-align: center;
+    }
+
+    .inputContainer {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .otp-input {
+      background-color: rgb(228, 228, 228);
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      border: none;
+      border-radius: 7px;
+      caret-color: rgb(127, 129, 255);
+      color: rgb(44, 44, 44);
+      outline: none;
+      font-weight: 600;
+    }
+
+    .otp-input:focus,
+    .otp-input:valid {
+      background-color: rgba(127, 129, 255, 0.199);
+      transition-duration: .3s;
+    }
+
+    .verifyButton {
+      width: 100%;
+      height: 30px;
+      border: none;
+      background-color: #7D2AE8;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 10px;
+      transition-duration: .2s;
+    }
+
+    .verifyButton:hover {
+      background-color: #7319e8;
+      transition-duration: .2s;
+    }
+
+    .closeBtn {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.171);
+      background-color: rgb(255, 255, 255);
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      border: none;
+      color: black;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+
+    .resendNote {
+      font-size: 0.7em;
+      color: black;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .resendBtn {
+      background-color: transparent;
+      border: none;
+      color: rgb(127, 129, 255);
+      cursor: pointer;
+      font-size: 1.1em;
+      font-weight: 700;
+    }
+
+
+    @media screen and (max-width:767px) {
+      .cover {
+        display: none;
+      }
+
+      .signup-form {
+        width: 100% !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="cover">
+      <div class="front">
+        <img
+          src="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt="">
+        <div class="text">
+          <span class="text-1">Lead System By<br>Scaleedge Solution</span>
+          <span class="text-2">Let's get connected</span>
+        </div>
+      </div>
+
+    </div>
+    <dialog class="dialog-container" autofocus="true">
+      <form class="otp-Form">
+        <input type="email" name="email" id="resend-email" hidden>
+        <span class="mainHeading">Enter OTP</span>
+        <p class="otpSubheading">We have sent a verification code to your mobile number</p>
+        <div class="inputContainer">
+          <input maxlength="1"  type="number" name="inputOne" class="otp-input" id="otp-input1">
+          <input maxlength="1" type="number" name="inputSecond" class="otp-input" id="otp-input2">
+          <input maxlength="1" type="number" name="inputThird" class="otp-input" id="otp-input3">
+          <input maxlength="1" type="number" name="inputFour" class="otp-input" id="otp-input4">
+
+        </div>
+        <button class="verifyButton" type="submit">Verify</button>
+        <button type="button" class="closeBtn">×</button>
+        <p class="resendNote">Didn't receive the code? <button type="button" class="resendBtn">Resend Code</button></p>
+      </form>
+    </dialog>
+    <div class="forms">
+      <div class="form-content">
+
+        <div class="signup-form">
+          <div class="title">Signup</div>
+          <form method="post" class="form" action="/signup">
+            <input type="number" name="otp" id="otp" hidden>
+
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Enter your name" name="username" id="username" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="number" placeholder="Enter your number" name="number" id="number" required />
+              </div>
+              <div class=" w-100  ">
+                <div class="row align-items-end  justify-content-between">
+                  <div class="first-section input-box cols-12 col-md-8 ">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Enter your email" name="email" id="email" required />
+                  </div>
+                  <div class="second-section input-box col-md-4 my-0">
+                    <button type="button" class="btn btn-sm text-white col-12 otpBtn"
+                      style="background-color: #7D2AE8;">Send OTP</button>
+                  </div>
+                </div>
+
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="text" placeholder="Enter your password" name="password" id="password" required />
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Enter your re-confirm password" name="confirmPassword"
+                  id="confirmPassword" required />
+              </div>
+              <div class="button input-box">
+                <input type="submit" value="Sumbit">
+              </div>
+              <div class="text sign-up-text">Already have an account? <label for="flip"><a href="/">Login
+                    now</a></label></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+<script>
+  const dialog = document.querySelector('.dialog-container')
+  const otpBtn = document.querySelector('.otpBtn')
+  const closeBtn = document.querySelector('.closeBtn')
+  otpBtn.addEventListener('click', function () {
+    dialog.showModal()
+  })
+  closeBtn.addEventListener('click', function () {
+    dialog.close()
+  })
+</script>
+<script>
+  function postData() {
+    const form = document.querySelector('.form')
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      getData();
+    })
+  }
+
+  async function getData(e) {
+
+    const form = document.querySelector('.form')
+    const newForm = new FormData(form);
+    const objectData = Object.fromEntries(newForm);
+
+    // post data
+    const res = await fetch('/signup', {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        username: objectData.username,
+        email: objectData.email,
+        number: objectData.number,
+        password: objectData.password,
+        confirmPassword: objectData.confirmPassword,
+        otp: objectData.otp
+      })
+    })
+    const data = await res.json()
+
+    if (data.success === true) {
+      Toastify({
+        text: "Registration successful! Redirecting...",
+        duration: 3000, // Display the toast message for 3 seconds
+        close: true,
+        gravity: "top", // Display the toast message at the top
+        stopOnFocus: true // Stop the toast if user focuses on it
+      }).showToast();
+
+      setTimeout(function () {
+        window.location.href = '/'; // Redirect to home page after 3 seconds
+      }, 3000);
+    } else {
+      Toastify({
+        text: "Registration failed! Please try again.",
+        duration: 3000,
+        close: true,
+        gravity: "top",
+        backgroundColor: "#ff6347",
+        stopOnFocus: true
+      }).showToast();
+    }
+  }
+  postData()
+</script>
+
+<script>
+  const otp = document.querySelector('.otpBtn')
+  otp.addEventListener('click', async () => {
+    const email = document.querySelector('#email').value
+    document.getElementById('resend-email').value = email;
+
+    const res = await fetch("/send-otp", {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({
+        email: email
+      }),
+    })
+    console.log(res)
+    const data = await res.json()
+    localStorage.setItem("otp", data.otp)
+
+    if (data.success === true) {
+      Toastify({
+        text: "OTP Send Successfully !",
+        duration: 3000,
+        close: true,
+        gravity: "top",
+        backgroundColor: "#5433A3 ",
+        stopOnFocus: true
+      }).showToast();
+    }
+    else {
+      Toastify({
+        text: "Failed to Send !",
+        duration: 3000,
+        close: true,
+        gravity: "top",
+        backgroundColor: "#5433A3 ",
+        stopOnFocus: true
+      }).showToast();
+    }
+  })
+</script>
+
+{{!-- OTP verification --}}
+<script>
+  document.querySelector('.otpBtn').addEventListener('click', () => {
+    const email = document.getElementById('email').value;
+    if (!email) {
+      Toastify({
+        text: "Please fill the email",
+        duration: 3000,
+        close: true,
+        gravity: "top",
+        backgroundColor: "red ",
+        stopOnFocus: true
+      }).showToast();
+    }
+    else {
+      const dialog = document.querySelector('.dialog-container');
+      dialog.showModal();
+    }
+
+
+  });
+
+  const otpForm = document.querySelector('.otp-Form')
+  otpForm.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const form = new FormData(otpForm)
+    const object = Object.fromEntries(form)
+    const otp = object.inputOne + object.inputSecond + object.inputThird + object.inputFour;
+    const storedOTP = localStorage.getItem('otp');
+    document.getElementById('otp').value = otp;
+
+    if (otp === storedOTP) {
+      Toastify({
+        text: "OTP Verified Successfully !",
+        duration: 2000,
+        close: true,
+        gravity: "top",
+        backgroundColor: "#5433A3 ",
+        stopOnFocus: true
+      }).showToast();
+
+      setTimeout(() => {
+        const dialog = document.querySelector('.dialog-container');
+        dialog.close();
+      }, 2000);
+    } else {
+      Toastify({
+        text: "OTP Not Verified !",
+        duration: 2000,
+        close: true,
+        gravity: "top",
+        backgroundColor: "red ",
+        stopOnFocus: true
+      }).showToast();
+    }
+  })
+</script>
+
+
+
+
+
+
+<script>
+  const resendOTP = document.querySelector('.resendBtn')
+  resendOTP.addEventListener('click', async () => {
+    const resendEmail = document.querySelector('#resend-email').value
+
+    const res = await fetch("/send-otp", {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({
+        email: resendEmail
+      }),
+    })
+    console.log(res)
+    const data = await res.json()
+    localStorage.setItem("otp", data.otp)
+
+    if (data.success === true) {
+      Toastify({
+        text: "OTP Send Successfully !",
+        duration: 3000,
+        close: true,
+        gravity: "top",
+        backgroundColor: "#5433A3 ",
+        stopOnFocus: true
+      }).showToast();
+    }
+    else {
+      Toastify({
+        text: "Failed to Send !",
+        duration: 3000,
+        close: true,
+        gravity: "top",
+        backgroundColor: "#5433A3 ",
+        stopOnFocus: true
+      }).showToast();
+    }
+  })
+</script>
+
+
+ {{!-- focus on the next field   --}}
+
+<script>
+  const fields = document.querySelectorAll('.inputContainer input');
+  fields.forEach((item, index) => {
+    item.addEventListener('input', (event) => {
+    const val = event.target.value;
+      if(val.length > 1){
+        event.target.value = val.slice(0, 1);
+      } else if(val.length === 1){
+        fields[index + 1]?.focus();
+      }
+    });
+    item.addEventListener('keyup',(e)=>{
+      const target = e.target;
+      const key = e.key.toLowerCase()
+      if(key == "backspace" || key == "delete"){
+        target.value =""
+        const prev = target.previousElementSibling;
+        if(prev){
+          prev.focus();
+        }
+        return;
+      }
+    })
+  });
+</script>
+
+
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</html>

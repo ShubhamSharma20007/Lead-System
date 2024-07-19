@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html lang="en" class="light-style layout-menu-fixed layout-compact" dir="ltr" data-theme="theme-default"
+    data-assets-path="/assets/" data-template="vertical-menu-template-free">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+
+    <title>Lead Managment</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="/assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/assets/css/demo.css" />
+    <link rel="stylesheet" href="/assets/css/mail.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/apex-charts/apex-charts.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="/assets/vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="/assets/js/config.js"></script>
+      <style>
+    .loader {
+ position: relative;
+ width: 2.5em;
+ height: 2.5em;
+ transform: rotate(165deg);
+
+ z-index: 99;
+}
+
+.loader:before, .loader:after {
+ content: "";
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ display: block;
+ width: 0.5em;
+ height: 0.5em;
+ border-radius: 0.25em;
+ transform: translate(-50%, -50%);
+}
+
+.loader:before {
+ animation: before8 2s infinite;
+}
+
+.loader:after {
+ animation: after6 2s infinite;
+}
+
+@keyframes before8 {
+ 0% {
+  width: 0.5em;
+  box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+
+ 35% {
+  width: 2.5em;
+  box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
+ }
+
+ 70% {
+  width: 0.5em;
+  box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+
+ 100% {
+  box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+}
+
+@keyframes after6 {
+ 0% {
+  height: 0.5em;
+  box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+ }
+
+ 35% {
+  height: 2.5em;
+  box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
+ }
+
+ 70% {
+  height: 0.5em;
+  box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
+ }
+
+ 100% {
+  box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+ }
+}
+
+.loader {
+ position: absolute;
+ top: calc(50% - 1.25em);
+ left: calc(50% - 1.25em);
+}
+
+.loader_cnt{
+    height: 100% ;
+    width: 100% ;
+    position: absolute ;
+    background: white ;
+     display: none;
+    z-index: 9999;
+}
+</style>
+</head>
+
+<body>
+       <div class="loader_cnt">
+        <div class="loader"></div>
+    </div>
+    
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <!-- Menu -->
+
+            {{>Sidebar}}
+            <!-- / Menu -->
+
+            <!-- Layout container -->
+            <div class="layout-page">
+                <!-- Navbar -->
+
+                {{>navBar}}
+                <!-- / Navbar -->
+
+                <!-- Content wrapper -->
+                <div class="content-wrapper">
+                    <!-- Content -->
+
+                    <div class="container-xxl flex-grow-1 container-p-y">
+
+                        <div class="bg-white w-100 h-50">
+                           <div class="card shadow-0 shadow-none h-100 m-auto" >
+                           <center class="m-auto">
+                            <a href="/auth/google"  onclick="googleAuth()">
+                             <img class="card-img-top" src="https://play-lh.googleusercontent.com/KSuaRLiI_FlDP8cM4MzJ23ml3og5Hxb9AapaGTMZ2GgR103mvJ3AAnoOFz1yheeQBBI=w240-h480-rw" alt="Card image cap" style="width: 6rem;height:6rem">
+                             </a>
+                           </center>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Footer -->
+                    {{>footer}}
+                    <!-- / Footer -->
+
+                    <div class="content-backdrop fade"></div>
+                </div>
+                <!-- Content wrapper -->
+            </div>
+            <!-- / Layout page -->
+        </div>
+
+        <!-- Overlay -->
+        <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+
+
+</body>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let primary = document.querySelector('.primary');
+        let social = document.querySelector('.social');
+        let promotion = document.querySelector('.promotion');
+        let primaryList = document.querySelector('.emailList__list.Primary');
+        let socialList = document.querySelector('.emailList__list.socials');
+        let promotionList = document.querySelector('.emailList__list.promotions');
+        socialList.style.display = 'none';
+        promotionList.style.display = 'none';
+        primary.addEventListener('click', function () {
+
+            primaryList.style.display = "block";
+            socialList.style.display = 'none';
+            promotionList.style.display = 'none';
+
+            document.querySelectorAll('.section').forEach(function (el) {
+                el.classList.remove('section__selected');
+            });
+
+            primary.classList.add('section__selected');
+        });
+
+        social.addEventListener('click', function () {
+
+            primaryList.style.display = "none";
+            socialList.style.display = 'block';
+            promotionList.style.display = 'none';
+
+            document.querySelectorAll('.section').forEach(function (el) {
+                el.classList.remove('section__selected');
+            });
+
+            social.classList.add('section__selected');
+        });
+
+        promotion.addEventListener('click', function () {
+
+            primaryList.style.display = "none";
+            socialList.style.display = 'none';
+            promotionList.style.display = 'block';
+
+            document.querySelectorAll('.section').forEach(function (el) {
+                el.classList.remove('section__selected');
+            });
+
+            promotion.classList.add('section__selected');
+        });
+    });
+
+
+  function googleAuth(){
+    window.addEventListener('beforeunload', (event) => {
+        document.querySelector('.loader_cnt').style.display = 'block';
+        
+    });
+    window.addEventListener('unload', () => {
+    document.querySelector('.loader_cnt').style.display = 'none';
+   
+});
+}
+
+   
+
+</script>
+
+
+<script src="/scripts/customizeleadform.js"></script>
+<!-- Main JS -->
+<script src="/assets/js/main.js"></script>
+
+</html>
