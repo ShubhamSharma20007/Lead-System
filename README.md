@@ -24,7 +24,7 @@ The Lead Management System is a web application built with Node.js and HBS (Hand
 
 To run this project locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/yourusername/lead-management-system.git`
+1. Clone the repository: `git clone https://github.com/ShubhamSharma20007/Lead-System.git `
 2. Navigate into the project directory: `cd lead-management-system`
 3. Install dependencies: `npm install`
 4. Set up your MongoDB database and configure environment variables.
